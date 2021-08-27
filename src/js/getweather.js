@@ -32,8 +32,8 @@ export async function drawWeatherByCoordinates(lat, lon) {
   imageIcon2.src = `assets/icon_min/${data.list[13].weather[0].icon}.png`
   temperature3.innerHTML = `${Math.floor(data.list[21].main.temp - kelvin)}º`
   imageIcon3.src = `assets/icon_min/${data.list[21].weather[0].icon}.png`
-  overcast = `${data.list[21].weather[0].description}`
-  description.innerHTML = `${data.list[21].weather[0].description}`
+  overcast = `${data.list[0].weather[0].description}`
+  description.innerHTML = `${data.list[0].weather[0].description}`
   document.querySelector('.main-weatherContent-weather').classList.remove('animate')
   Array.from(document.querySelectorAll('.forecast')).forEach(e => e.classList.remove('animate'))
 }
