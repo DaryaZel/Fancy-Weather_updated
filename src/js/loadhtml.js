@@ -172,6 +172,7 @@ export async function createHtml() {
     main_weatherContent_location_time.className = 'main-weatherContent-location-time'
     h2Time.id = 'time'
     main_weatherContent_weather.className = 'main-weatherContent-weather'
+    main_weatherContent_weatherDIV1.className = 'main-weatherContent-weather-imgAndTemperature'
     main_weatherContent_weather.classList.add('animate')
     h2Temperature.id = 'temperature'
     imgImageIcon.id = 'imageIcon'

@@ -1,11 +1,13 @@
 body{
-    margin: 0;
-    background-color: #54627B;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height:100vh;
-    position: relative;
+  position: relative;
+  margin: 0;
+  background-color: #54627B;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height:100vh;
+  width: 100vw;
 }
 #search-input{
   outline: none;
@@ -41,15 +43,32 @@ body{
   padding: 0;
 }
 #weather-list li{
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .wrapper{
-    max-width: 1154px;
-    margin: 0 auto;
+  max-width: 1154px;
+  margin: 0 auto;
 }
 .navigation .wrapper,.main .wrapper, .main-weatherContent-weather, .main-weatherContent-forcast{
-    display: flex;
-    justify-content: space-between;
+  display: flex;  
+  justify-content: space-between;
+}
+.main-weatherContent-forcast{
+  min-width: 450px;
+}
+.main-weatherContent-weather-imgAndTemperature{
+  position: relative;
+  text-align: center;
+}
+#temperature{
+  margin: 20px 0 0 20px;
+  font-size: 6em;
+}
+#imageIcon{
+  position: absolute;
+  left: 70%;
+  top:-30%;
+  opacity: 90%;
 }
 .navigation .wrapper{
     margin-top: 20px;
@@ -62,16 +81,21 @@ margin-bottom: 10px;
 .main{
     margin-top:20px;
 }
-/* .main-map{
-    position: relative;
-} */
 .main-weatherContent, .main-map {
-    min-width: 450px;
-    padding: 20px 50px;
-    border-radius: 40px;
-    border: 6px solid rgba(250, 128, 114, 0.705);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 450px;
+  padding: 20px 50px;
+  border-radius: 40px;
+  border: 6px solid rgba(250, 128, 114, 0.705);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+/* .main-map{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+} */
 #city{
     margin: 0px 0px 10px; 
 }
@@ -100,6 +124,7 @@ margin-bottom: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .forecast{
+    position: relative;
     width: 100px;
     height: 180px;
     padding: 20px;
@@ -107,6 +132,16 @@ margin-bottom: 10px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+#temperature1, #temperature2, #temperature3{
+  margin-left: 10px;
+  font-size: 3em;
+}
+#imageIcon1, #imageIcon2, #imageIcon3{
+  position: absolute;
+  top: 27%;
+  left: 45%;
+  opacity: 90%;
 }
 #map {
     padding: 30px;
@@ -212,29 +247,61 @@ background-color: #405a69
     }
   }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1140px) {
     .main .wrapper {
       display: block;
     }
     #map{ 
-        margin: 0 auto;
+      margin: 0 auto;
     }
     .main-map{
-        margin-top: 30px;
+      margin-top: 30px;
     }
     #latitude, #longitude {
-    text-align: center;
+      text-align: center;
     }
   }
-  @media only screen and (max-width: 530px) {
-    .main-weatherContent, .navigation .wrapper{
-        text-align: center;
+  @media only screen and (max-width: 560px) {
+    .main-weatherContent, .navigation.wrapper{
+      text-align: center;
     }
-    .main-weatherContent-weather, .main-weatherContent-forcast, .navigation .wrapper, .main-weatherContent-weather div{
-        display: block;
-      }
+    .main-weatherContent, .main-map, .navigation.wrapper{
+      box-sizing: border-box;
+      height: 100%;
+      width: 100vw;
+    }
+    .main-weatherContent-weather, .main-weatherContent-location, .main-weatherContent-forcast, .main-weatherContent-weather div, .main-wrapper-geolocation{
+      display: block;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+    }
+    .main-weatherContent-weather{
+      height: 100%;
+      width: 100%;
+    }
+    .main-weatherContent-forcast{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .forecast{
+      margin-bottom: 20px;
+    }
+    #imageIcon{
+      left: 60%;
+      top:-30%;
+    }
+    .navigation-search{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #search-button{
+      margin-top: 5px;
+    }
       #map {
-        height: 175px;
-        width: 259px;
+      height: 175px;
+      width: 259px;
     }
   }
